@@ -1,6 +1,6 @@
-if SHIELD_NICE_NANO_4X6
+if SHIELD_SILENT_DISPLAY_3X3
 
 config ZMK_KEYBOARD_NAME
-    default "nice_nano_4x6"
+    default "Silent 3x3"
 
 endif
