@@ -1,6 +1,6 @@
 if SHIELD_SILENT_DISPLAY_3X3
 
 config ZMK_KEYBOARD_NAME
-    default "Silent 3x3"
+    default "9key_makro_master_zmk"
 
 endif
