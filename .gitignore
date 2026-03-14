@@ -1,4 +1,41 @@
+# West / ZMK / Zephyr workspace artifacts
 .west/
-build/
-zephyr/
 zmk/
+zephyr/
+modules/
+bootloader/
+tools/
+
+# Build output
+build/
+out/
+dist/
+
+# Firmware files
+*.uf2
+*.bin
+*.hex
+*.elf
+*.map
+
+# CMake / Ninja
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
