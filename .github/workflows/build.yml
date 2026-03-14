@@ -1,4 +1,4 @@
-name: Build ZMK (nice_nano_v2)
+name: Build ZMK (9key_makro_master_zmk)
 
 on:
   workflow_dispatch:
