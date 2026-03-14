@@ -3,13 +3,10 @@ name: Build ZMK (9key_makro_master_zmk)
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
-    with:
-      board: nice_nano_v2
-      shield: 9key_makro_master_zmk
