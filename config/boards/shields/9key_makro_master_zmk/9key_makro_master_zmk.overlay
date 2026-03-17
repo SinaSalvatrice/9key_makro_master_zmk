@@ -71,7 +71,6 @@
 
 &i2c0 {
     status = "okay";
-    sda-pin = <0>;
     scl-pin = <1>;
 
     oled: ssd1306@3c {
