@@ -1,3 +1,2 @@
 config SHIELD_9KEY_MAKRO_MASTER_ZMK
-    def_bool 6
-)
+    def_bool $(shields_list_contains,9key_makro_master_zmk)

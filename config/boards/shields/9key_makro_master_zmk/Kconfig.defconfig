@@ -1,4 +1,4 @@
-if SHIELD_SILENT_DISPLAY_3X3
+if SHIELD_9KEY_MAKRO_MASTER_ZMK
 
 config ZMK_KEYBOARD_NAME
     default "9key_makro_master_zmk"
