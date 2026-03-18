@@ -1,3 +1,4 @@
+#include "9key_makro_master_zmk-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
@@ -5,7 +6,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
         zephyr,display = &oled;
     };
 
