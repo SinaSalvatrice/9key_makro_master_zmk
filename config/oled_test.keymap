@@ -1,0 +1,65 @@
+#include <behaviors.dtsi>
+
+/ {
+    behaviors {
+        oled_forward: oled_forward {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&to 1>, <&to 2>;
+        };
+
+        oled_backward: oled_backward {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&to 3>, <&to 0>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        oled_test_0 {
+            display-name = "OLED 0";
+            bindings = <
+                &none  &none  &none
+                &none  &to 1  &none
+                &none  &none  &none
+                &to 1
+            >;
+            sensor-bindings = <&oled_forward>;
+        };
+
+        oled_test_1 {
+            display-name = "OLED 1";
+            bindings = <
+                &none  &none  &none
+                &none  &to 2  &none
+                &none  &none  &none
+                &to 2
+            >;
+            sensor-bindings = <&oled_forward>;
+        };
+
+        oled_test_2 {
+            display-name = "OLED 2";
+            bindings = <
+                &none  &none  &none
+                &none  &to 3  &none
+                &none  &none  &none
+                &to 3
+            >;
+            sensor-bindings = <&oled_forward>;
+        };
+
+        oled_test_3 {
+            display-name = "OLED 3";
+            bindings = <
+                &none  &none  &none
+                &none  &to 0  &none
+                &none  &none  &none
+                &to 0
+            >;
+            sensor-bindings = <&oled_backward>;
+        };
+    };
+};
