@@ -31,7 +31,7 @@
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
         wakeup-source;
-        rows = <4>;
+        rows = <3>;
         columns = <3>;
 
         matrix {
