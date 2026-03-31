@@ -7,4 +7,4 @@ include:
     shield: 9key_makro_master_zmk
     artifact-name: 9key_makro_master_zmk_oled_test
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DKEYMAP_FILE=oled_test.keymap
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DKEYMAP_FILE=@ZMK_CONFIG@/oled_test.keymap
