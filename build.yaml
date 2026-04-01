@@ -6,5 +6,4 @@ include:
   - board: nice_nano_v2
     shield: 9key_makro_master_zmk
     artifact-name: 9key_makro_master_zmk_oled_test
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DKEYMAP_FILE=${base_dir}/config/oled_test.keymap
+    cmake-args: -DKEYMAP_FILE=${base_dir}/config/oled_test.keymap -DCONFIG_ZMK_USB_LOGGING=y
