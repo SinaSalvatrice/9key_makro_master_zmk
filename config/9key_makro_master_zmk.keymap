@@ -26,99 +26,147 @@
         select_encoder: select_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&to 1>, <&to 4>;
+            bindings = <&none>, <&none>;
+        };
+
+        // NAV layer: switch windows forward/back (matches QMK _NAV encoder)
+        nav_encoder: nav_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp LG(TAB)>, <&kp LA(TAB)>;
+        };
+
+        // EDIT & FN layers: move cursor right/left (matches QMK _EDIT/_FN encoder)
+        edit_fn_encoder: edit_fn_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp LEFT>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
+        // Layer 0 – BASE  (QMK _BASE)
         base_layer {
+            display-name = "BASE";
             bindings = <
                 &kp LG(TAB)  &kp UP       &kp LA(TAB)
                 &kp LEFT     &kp RET      &kp RIGHT
                 &kp LC(Z)    &kp DOWN     &kp LC(R)
-            
+                &mo 6
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
+        // Layer 1 – NAV  (QMK _NAV – same matrix keys as BASE, window-switch encoder)
+        nav_layer {
+            display-name = "NAV";
+            bindings = <
+                &kp LG(TAB)  &kp UP       &kp LA(TAB)
+                &kp LEFT     &kp RET      &kp RIGHT
+                &kp LC(Z)    &kp DOWN     &kp LC(R)
+                &mo 6
+            >;
+            sensor-bindings = <&nav_encoder>;
+        };
+
+        // Layer 2 – EDIT  (QMK _EDIT – arrow encoder matches QMK right/left)
         edit_layer {
+            display-name = "EDIT";
             bindings = <
                 &kp LC(A)      &kp LC(C)      &kp LC(V)
                 &kp LC(X)      &kp LC(RET)    &none
                 &kp LC(LS(Z))  &kp SPACE      &kp BSPC
-            
+                &mo 6
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&edit_fn_encoder>;
         };
 
+        // Layer 3 – MEDIA  (QMK _MEDIA)
+        // (0,1): C_AL_MUSIC ≈ QMK KC_MSEL "Media Select / Launch Player"
         media_layer {
+            display-name = "MEDIA";
             bindings = <
-                &kp C_PREV   &kp C_PLAY   &kp C_NEXT
-                &kp C_RW     &kp C_PP     &kp C_FF
-                &kp DOWN     &kp C_STOP   &kp UP
-            
+                &kp C_PREV   &kp C_AL_MUSIC  &kp C_NEXT
+                &kp C_RW     &kp C_PP        &kp C_FF
+                &kp DOWN     &kp C_STOP      &kp UP
+                &mo 6
             >;
             sensor-bindings = <&volume_encoder>;
         };
 
+        // Layer 4 – FN  (QMK _FN – arrow encoder matches QMK right/left)
         fn_layer {
+            display-name = "FN";
             bindings = <
                 &kp F13  &kp F14  &kp F15
                 &kp F16  &kp F17  &kp F18
                 &kp F19  &kp F20  &kp F21
-            
+                &mo 6
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&edit_fn_encoder>;
         };
 
+        // Layer 5 – RGB  (QMK _RGB)
         rgb_layer {
+            display-name = "RGB";
             bindings = <
                 &rgb_ug RGB_SPI  &rgb_ug RGB_SPD  &rgb_ug RGB_TOG
                 &rgb_ug RGB_HUI  &rgb_ug RGB_HUD  &rgb_ug RGB_BRI
                 &rgb_ug RGB_SAI  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD
-            
+                &mo 6
             >;
             sensor-bindings = <&rgb_brightness_encoder>;
         };
 
+        // Layer 6 - SELECT (QMK _SELECT)
+        // Encoder button held -> MO(6) shows this layer; release -> back to previous.
+        // Encoder scroll is a no-op here, matching QMK selector behavior.
+        // Bottom row is left empty to match the QMK selector layout.
         select_layer {
+            display-name = "SELECT";
             bindings = <
                 &to 1   &to 2   &to 3
-                &to 4   &to 0   &none
-                &to 6   &to 7   &to 8
-            
+                &to 4   &to 0   &to 5
+                &none   &none   &none
+                &none
             >;
             sensor-bindings = <&select_encoder>;
         };
 
-        layer6_system {
+        // Layer 7 – SYSTEM  (ZMK-only, no QMK equivalent)
+        system_layer {
+            display-name = "SYSTEM";
             bindings = <
                 &kp C_AC_SAVE  &kp C_AC_COPY  &kp C_AC_PASTE
                 &kp C_AC_CUT   &kp C_AC_UNDO  &kp C_AC_REDO
                 &kp PSCRN      &kp DEL        &kp ESC
-                
+                &mo 6
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer7_navigation {
+        // Layer 8 – NAV KEYS  (ZMK-only, no QMK equivalent)
+        navkeys_layer {
+            display-name = "NAV KEYS";
             bindings = <
                 &kp HOME   &kp PG_UP  &kp END
                 &kp LEFT   &kp RET    &kp RIGHT
                 &kp INS    &kp PG_DN  &kp DEL
-            
+                &mo 6
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer8_numpad {
+        // Layer 9 – NUMPAD  (ZMK-only, no QMK equivalent)
+        numpad_layer {
+            display-name = "NUMPAD";
             bindings = <
-                &kp KP_N7  &kp KP_N8   &kp KP_N9
-                &kp KP_N4  &kp KP_N5   &kp KP_N6
-                &kp KP_N1  &kp KP_N2   &kp KP_N3
-            
+                &kp KP_N7  &kp KP_N8  &kp KP_N9
+                &kp KP_N4  &kp KP_N5  &kp KP_N6
+                &kp KP_N1  &kp KP_N2  &kp KP_N3
+                &mo 6
             >;
             sensor-bindings = <&scroll_encoder>;
         };
