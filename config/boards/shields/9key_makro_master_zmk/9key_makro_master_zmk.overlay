@@ -2,12 +2,14 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
+#include <dt-bindings/led/led.h>
 
 / {
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
         zephyr,display = &oled;
+        zmk,underglow = &led_strip;
     };
 
     kscan_matrix: kscan_matrix {
@@ -68,6 +70,14 @@
         b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <4>;
         status = "okay";
+    };
+
+    led_strip: ws2812 {
+        compatible = "worldsemi,ws2812";
+        pin = <31>;
+        chain-length = <9>;
+        spi-frequency = <4000000>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
 };
 
