@@ -11,6 +11,7 @@
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
+
         volume_encoder: volume_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -47,11 +48,11 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0 – BASE  (QMK _BASE)
+        // Layer 0 – BASE
         base_layer {
             display-name = "BASE";
             bindings = <
-                &kp LG(TAB)  &kp UP       &kp LA(TAB)
+                &mo 1        &kp UP       &kp BSPC
                 &kp LEFT     &kp RET      &kp RIGHT
                 &kp LC(Z)    &kp DOWN     &kp LC(R)
                 &mo 6
