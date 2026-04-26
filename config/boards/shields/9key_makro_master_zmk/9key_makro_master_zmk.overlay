@@ -13,7 +13,7 @@
     kscan_matrix: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
-        diode-direction = "col2row";
+        diode-direction = "row2col";
         col-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>,
                     <&gpio0 6 GPIO_ACTIVE_HIGH>,
                     <&gpio0 7 GPIO_ACTIVE_HIGH>;
@@ -103,6 +103,8 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
+        segment-remap;
+        com-invdir;
         prechargep = <0x22>;
     };
 };
