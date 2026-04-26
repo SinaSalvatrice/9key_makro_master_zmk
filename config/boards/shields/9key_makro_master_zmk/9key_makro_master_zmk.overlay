@@ -8,6 +8,7 @@
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
         zephyr,display = &oled;
+        zephyr,console = &cdc_acm_uart0;
     };
 
     kscan_matrix: kscan_matrix {
