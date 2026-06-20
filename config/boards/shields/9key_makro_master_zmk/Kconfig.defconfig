@@ -1,0 +1,18 @@
+if SHIELD_9KEY_MAKRO_MASTER_ZMK
+
+config ZMK_KEYBOARD_NAME
+    default "9key Makro Master"
+
+config EC11
+    default y
+
+config EC11_TRIGGER_GLOBAL_THREAD
+    default y
+
+config ZMK_DISPLAY
+    default y
+
+config ZMK_RGB_UNDERGLOW
+    default y
+
+endif
