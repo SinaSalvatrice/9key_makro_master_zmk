@@ -3,7 +3,7 @@ id: 9key_makro_master_zmk
 name: 9key Makro Master
 type: shield
 url: https://github.com/SinaSalvatrice/9key_makro_master_zmk
-requires: [pro_micro]
+requires: [nice_nano_v2]
 exposes: [i2c_oled]
 features:
   - keys
