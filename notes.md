@@ -28,4 +28,12 @@ DIN = P0.09 / D10 \ frame-leds 27 - one strip, but seperate options
 
 ## Mapping
 
-- translate as far as possible [text](https://github.com/SinaSalvatrice/9key_makro_master_qmk/blob/reworked_v2/keymaps/reworked/keymap.c)
+r0/0 = layer selector
+r0/1 = up
+r0/2 = back
+r1/0 = left
+r1/1 = enter
+r1/2 = right
+r2/0 = undoo
+r2/1 = down
+r2/2 = redo
